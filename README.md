@@ -4,7 +4,7 @@
 ---
 
 ## 🔗 Live Demo
-> **Live Site:** [product-store-nine-zeta.vercel.app]
+> **Live Site:** [Site Link](product-store-nine-zeta.vercel.app)
 
 ---
 
