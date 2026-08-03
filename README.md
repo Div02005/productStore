@@ -4,7 +4,7 @@
 ---
 
 ## 🔗 Live Demo
-> **Live Site:** [https://your-productstore-app.vercel.app](#) *(Placeholder - add deployed link here)*
+> **Live Site:** [product-store-nine-zeta.vercel.app]
 
 ---
 
