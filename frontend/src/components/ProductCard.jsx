@@ -54,6 +54,30 @@ const ProductCard = ({ product }) => {
   };
 
   const handleUpdateProduct = async (pid, updatedProduct) => {
+    const { name, price, image } = updatedProduct;
+
+    if (!name.trim() || !image.trim() || !price) {
+      toast({
+        title: "Error",
+        description: "All fields are required.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    const numPrice = Number(price);
+    if (isNaN(numPrice) || numPrice <= 0) {
+      toast({
+        title: "Invalid Price",
+        description: "Please enter a positive numeric price.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
     const { success, message } = await updateProduct(pid, updatedProduct);
     onClose();
     if (!success) {

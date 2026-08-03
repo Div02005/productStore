@@ -22,6 +22,32 @@ const CreatePage = () => {
   const { createProduct } = useProductStore();
 
   const handleAddProduct = async () => {
+    const { name, price, image } = newProduct;
+
+    // 1. Check for empty or whitespace-only inputs
+    if (!name.trim() || !image.trim() || !price) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    // 2. Validate positive numeric price
+    const numPrice = Number(price);
+    if (isNaN(numPrice) || numPrice <= 0) {
+      toast({
+        title: "Invalid Price",
+        description: "Price must be a valid positive number greater than 0.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
     const { success, message } = await createProduct(newProduct);
 
     if (!success) {
